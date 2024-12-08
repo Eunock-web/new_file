@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head> <header>
+<h1 id="logo"> Mon site</h1>
+<nav id="menu">
+    <ul>
+        <li id="line"><a href="index.html">Acceuil</a></li>
+        <li id="line"><a href="Presentation.html">Presentation</a></li>
+        <li id="line"><a href="blog.html">Blog</a></li>
+        <li id="line"><a href="contact.html">Contact</a></li>
+        <li id="line"><a href="Jeux.html">Game</a></li>
+    </ul>
+</nav>
+</header>
+<style>  
+  body {
+        background-color:white;
+    }
+    .container {
+        display: flex;
+        background-color: wheat;
+        border: 2px solid black;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    margin-top: 80px;
+    }
+#box{
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgba(159, 161, 123, 0.886);
+    margin: 20px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+} 
+
+
+
+.button {
+
+    display: flex;
+    text-align: center;
+    padding-top: 20px;
+    background-color:aliceblue;
+    border: 2px solid black;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    margin-bottom: 130px;
+
+        .Start {
+            background-color: chartreuse;
+            height: auto;
+            width: auto;
+            margin: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 2px;
+        }
+
+        .stop {
+            background-color: #ff0000;
+            height: auto;
+            width: auto;
+            margin: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 2px;
+        }
+}
+
+#boxColors {
+    display: grid;
+        .boxcolor {
+            height: min-content;
+
+        }
+}
+
+.graph {
+    div{
+       
+        height: 10px;
+        margin: 10px;
+
+    }
+
+    .red {
+        background-color: #ff0000;
+        width: 1px;
+    }
+    .green {
+        background-color: green;
+        width: 1px;
+
+    }
+    .blue {
+        background-color: blue;
+        width: 1px;
+    }
+}
+
+</style>
+
+<body>
+
+
+
+
+    <div class="container">
+
+    <div class="box1" id="box"></div>
+    <div class="box2" id="box"></div>
+    <div class="box3" id="box"></div>
+    <div id="boxColors">
+
+    <div class="boxcolor" >
+        <b>box 1 : </b> <span id="boxColor"></span>
+        <br>
+        <b>box 2 : </b> <span id="boxColor"></span>
+        <br>
+        <b>box 3 : </b> <span id="boxColor"></span>
+    </div>
+
+    <div class="graph">
+        <div class="red"></div>
+        <div class="green"></div>
+        <div class="blue"></div>
+    </div>
+
+    </div>
+
+
+</div>
+
+
+
+    
+<div class="button">
+    <button class="start" onclick="insertColor()" >Générer</button>
+    <button class="stop" onclick="stop()" >STOP</button>
+        <br>
+  
+</div>
+ 
+
+    <script>
+let red ;
+let green ;
+let blue;
+let  timeID ;
+let  colors
+  // var text = document.getElementById('text'),
+
+        function getRandomNum(max) {
+            return Math.floor(Math.random()*max)
+        }
+
+
+    function AddColor() {
+            red = getRandomNum(255) ;
+            green = getRandomNum(255) ;
+            blue = getRandomNum(255) ;
+        }
+function insertColor() {
+
+   //alert(colors);
+   
+
+     let  box  = document.querySelectorAll("#box") ;
+     let  boxColor  = document.querySelectorAll("#boxColor") ;
+     for (i=0 ; i< box.length  ; i++ ) {
+        AddColor()
+        
+    colors ='rgb('+red+','+green+','+blue+')' ;
+     box[i].style.backgroundColor = colors  ;
+     box[i].style.width = "200px" ;
+     box[i].style.height = "200px" ;
+     box[i].style.border = "1px solid black" ;
+     box[i].style.margin = "20px" ;
+     boxColor[i].innerHTML = colors ;
+
+    let  redC = document.getElementsByClassName("red");
+
+   // redC.style.backgroundColor = "black"
+     console.log(redC);
+    
+    
+
+     }
+
+for(i=0;i<boxColor.length;i++) {
+    
+
+    
+}
+     
+
+
+  /*   let bColor1 = document.querySelector(".box1") ;
+     let bColor2 = document.querySelector(".box2") ;
+     let bColor3 = document.querySelector(".box3") ;
+
+
+     let boxColor1 = document.querySelector("#box1") ;
+     let boxColor2 = document.querySelector("#box2") ;
+     let boxColor3 = document.querySelector("#box3") ;
+let rgb1 = getComputedStyle(bColor1 , null).backgroundColor ;
+let rgb2 = getComputedStyle(bColor2 , null).backgroundColor ;
+let rgb3 = getComputedStyle(bColor3 , null).backgroundColor ;
+
+//console.log(rgb);
+boxColor1.innerHTML = rgb1 ;
+boxColor2.innerHTML = rgb2 ;
+boxColor3.innerHTML = rgb3 ;*/
+  timeID = setTimeout(insertColor, 30);
+
+
+
+}
+
+
+function stop() {
+    clearTimeout( timeID)
+}
+
+
+
+
+
+
+
+
+    </script>
+    <footer>
+        <p style="text-align: center;">Copyright 2024 ESGIS. Tous les droits réservés.</p>
+        <div>
+            <nav id="menu">
+                <ul>
+                    <li id="line"><a href="index.html">Acceuil</a></li>
+                    <li id="line"><a href="Presentation.html">Presentation</a></li>
+                    <li id="line"><a href="blog.html">Blog</a></li>
+                    <li id="line"><a href="contact.html">Contact</a></li>
+                    <li id="line"><a href="Jeux.html">Game</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

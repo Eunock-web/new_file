@@ -1,0 +1,16 @@
+#monElement{
+    border: 2px solid black;
+    width: 200px;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#boutonchange{
+    background-color: aqua;
+    color: green;
+    border: none;
+    padding: 10px 20px;
+}
+#boutonchange:hover{
+    background-color: black;
+}
